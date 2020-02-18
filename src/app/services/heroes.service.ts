@@ -67,17 +67,26 @@ export class HeroesService {
   }
 
   buscarHeroes(termino:string):Heroe[]{
-    let heroesArr:Heroe[] = [];
     termino = termino.toLowerCase();
 
-    for (let i = 0; i < this.heroes.length; i++){
-      let heroe = this.heroes[i];
+    let heroesArr:Heroe[] = this.heroes.filter((heroe, index) => {
       let nombre = heroe.nombre.toLowerCase();
       if (nombre.indexOf(termino) >= 0){
-        heroe.idx = i;
-        heroesArr.push(heroe);
+        heroe.idx = index;
+        return heroe;
       }
-    }
+    });
+
+    // let heroesArr:Heroe[] = []
+
+    // for (let i = 0; i < this.heroes.length; i++){
+    //   let heroe = this.heroes[i];
+    //   let nombre = heroe.nombre.toLowerCase();
+    //   if (nombre.indexOf(termino) >= 0){
+    //     heroe.idx = i;
+    //     heroesArr.push(heroe);
+    //   }
+    // }
     return heroesArr;
   }
 }

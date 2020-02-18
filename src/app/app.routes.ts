@@ -5,12 +5,12 @@ import { HeroesComponent } from "./components/heroes/heroes.component";
 import { HeroeComponent } from './components/heroe/heroe.component';
 import { HeroeBusquedaComponent } from './components/heroe-busqueda/heroe-busqueda.component';
 
-
 const APP_ROUTES: Routes = [
   { path: "home", component: HomeComponent },
   { path: "heroes", component: HeroesComponent },
   { path: "about", component: AboutComponent },
   { path: "heroe/:id", component: HeroeComponent },
+  { path: "buscar/", redirectTo: "heroes" },
   { path: "buscar/:termino", component: HeroeBusquedaComponent },
   { path: "**", pathMatch: "full", redirectTo: "home" }
 ];
